@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	fmt.Println("d01p1:", d1(readLines("input/01.txt")))
-	fmt.Println("d01p2:", d2(readLines("input/01.txt")))
+	fmt.Println("d01p1:", d01p1(readLines("input/01.txt")))
+	fmt.Println("d01p2:", d01p2(readLines("input/01.txt")))
 }
 
 func readLines(path string) []string {

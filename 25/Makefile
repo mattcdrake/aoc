@@ -9,6 +9,6 @@ fmt:
 vet: fmt
 	go vet ./...
 run: clean vet
-	go run main.go d1.go
+	go run ./...
 build: clean vet
 	go build -o aoc25

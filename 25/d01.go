@@ -4,7 +4,7 @@ import (
 	"strconv"
 )
 
-func d1(lines []string) int {
+func d01p1(lines []string) int {
 	cur, res := 50, 0
 	for _, rotation := range lines {
 		cur, _ = rotate(cur, rotation)
@@ -15,7 +15,7 @@ func d1(lines []string) int {
 	return res
 }
 
-func d2(lines []string) int {
+func d01p2(lines []string) int {
 	cur, res, crosses := 50, 0, 0
 	for _, rotation := range lines {
 		cur, crosses = rotate(cur, rotation)
