@@ -16,10 +16,10 @@ func d01p1(lines []string) int {
 }
 
 func d01p2(lines []string) int {
-	cur, res, crosses := 50, 0, 0
+	cur, res, zeroes := 50, 0, 0
 	for _, rotation := range lines {
-		cur, crosses = rotate(cur, rotation)
-		res += crosses
+		cur, zeroes = rotate(cur, rotation)
+		res += zeroes
 	}
 	return res
 }
