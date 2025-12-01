@@ -7,7 +7,7 @@ import (
 func d1(lines []string) string {
 	cur, res := 50, 0
 	for _, rotation := range lines {
-		cur = rotate(cur, rotation)
+		cur, _ = rotate(cur, rotation)
 		if cur == 0 {
 			res++
 		}
@@ -16,17 +16,30 @@ func d1(lines []string) string {
 }
 
 func d2(lines []string) string {
-	if len(lines) > 0 {
+	cur, res, crosses := 50, 0, 0
+	for _, rotation := range lines {
+		cur, crosses = rotate(cur, rotation)
+		res += crosses
 	}
-	return "answer"
+	return strconv.Itoa(res)
 }
 
-func rotate(cur int, move string) int {
-	n, _ := strconv.Atoi(move[1:])
+func rotate(cur int, move string) (int, int) {
+	dist, _ := strconv.Atoi(move[1:])
+	init := cur
+	zeroes := dist / 100
+	dist %= 100
+
 	if move[0] == 'R' {
-		cur += n
+		cur += dist
 	} else {
-		cur -= n
+		cur -= dist
 	}
-	return (cur%100 + 100) % 100
+
+	if init != 0 && (cur <= 0 || cur > 99) {
+		zeroes++
+	}
+
+	cur = (cur%100 + 100) % 100
+	return cur, zeroes
 }
